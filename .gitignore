@@ -1,0 +1,18 @@
+# Local configuration (contains your Steam API key — never commit)
+/config.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Built frontend & deps
+/web/node_modules/
+
+# Local data
+*.db
+*.db-wal
+*.db-shm
+/data/

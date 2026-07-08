@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────────────────────
+# Wishlist Monitor — configuration
+# Copy this file to `config.yaml` (same folder as main.py) and edit.
+# The dashboard shows exactly the games listed here, no login required.
+# ─────────────────────────────────────────────────────────────
+
+# Steam Partner API key — required to fetch wishlist data.
+# Without it the app still runs but shows no data.
+steam_api_key: "YOUR_STEAM_PARTNER_API_KEY"
+
+# Games to display, as Steam App IDs or store URLs. Order is preserved.
+# Removing a game here untracks it on next start (its history is kept,
+# so re-adding it restores the data instantly).
+games:
+  - 2358720
+  - "https://store.steampowered.com/app/1091500/"
+
+# Web server bind address (host:port).
+bind: "0.0.0.0:14520"
+
+# SQLite database path. Optional — defaults to the OS app-data directory
+# (e.g. %APPDATA%\wishlist-pulse\data.db on Windows).
+# database_path: "./data/wishlist.db"
+
+# How often to poll Steam for fresh numbers, in minutes.
+poll_interval_minutes: 5
+
+# Backfill rate limit, in requests per second.
+backfill_rate: 1.0
+
+# Anomaly detection tuning (all optional; sensible defaults shown).
+anomaly:
+  lookback_days: 21
+  sensitivity_up: 2.0
+  sensitivity_down: 1.8
+  min_absolute: 5
+  mad_floor_pct: 0.05
